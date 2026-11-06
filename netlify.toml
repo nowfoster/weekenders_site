@@ -1,0 +1,50 @@
+# Netlify builds the static export and serves ./out.
+# Connect the GitHub repo in Netlify (Add new site → Import an existing project)
+# and every push to main deploys to production; PRs get deploy previews.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Old URLs from the previous version of the site
+[[redirects]]
+  from = "/weekenders"
+  to = "/become-a-weekender"
+  status = 301
+
+[[redirects]]
+  from = "/about_us"
+  to = "https://nowfoster.org/about_us"
+  status = 301
+
+[[redirects]]
+  from = "/readiness_checker"
+  to = "https://nowfoster.org/readiness_checker"
+  status = 301
+
+[[redirects]]
+  from = "/privacy_policy"
+  to = "https://nowfoster.org/privacy_policy"
+  status = 301
+
+# Long-cache fingerprinted build assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

@@ -1,17 +1,101 @@
 @import "tailwindcss";
 
+/* Design tokens from the "Weekender Website" Figma file */
 @theme {
-  --color-brand-green: #164045;
-  --color-brand-light-green: #2f8892;
-  --color-brand-pink: #ccb4cb;
-  --color-brand-gray: #f5f5f5;
-  --color-brand-mint: #CFE4E5;
+  --color-brand: #164045; /* background/brand/bold */
+  --color-ink: #25262c; /* text/neutral/bold */
+  --color-ink-subtle: #6b7281; /* text/neutral/subtle */
+  --color-ink-icon: #383a42;
+  --color-mint: #eaf7f8; /* background/neutral/subtle */
+  --color-mint-50: #e5f4f5;
+  --color-mint-100: #f2f9fa; /* light-green/100 */
+  --color-mint-400: #e1f1f3; /* light-green/400 */
+  --color-mint-500: #cfe4e5; /* light-green/500 */
+  --color-mint-600: #9fccd2; /* light-green/600 */
+  --color-mint-700: #7db5bd; /* light-green/700 */
+  --color-teal-100: #c6e6e8; /* dark-green/100 */
+  --color-teal-200: #8fc9cd; /* dark-green/200 */
+  --color-lilac: #ccb4cb; /* background/accent/bold */
+  --color-lilac-subtle: #f0e7f0; /* background/accent/subtle */
+  --color-lilac-300: #dec6dc;
+  --color-lilac-950: #45293e;
+  --color-butter: #fef3c7; /* background/warning/subtle */
+  --color-butter-300: #fcd34d;
+  --color-line: #d8dadf; /* border/neutral/subtle */
+  --color-line-subtle: #edeef1; /* border/neutral/subtlest */
 
-  --font-sans: "Inter var", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 24px;
+  --radius-card-lg: 32px;
+
+  /* Type scale (Figma text styles) */
+  --text-display-1: 72px;
+  --text-display-1--line-height: 88px;
+  --text-display-1--letter-spacing: -0.022em;
+  --text-display-2: 60px;
+  --text-display-2--line-height: 74px;
+  --text-display-2--letter-spacing: -0.022em;
+  --text-display-3: 50px;
+  --text-display-3--line-height: 62px;
+  --text-display-3--letter-spacing: -0.022em;
+  --text-h1: 42px;
+  --text-h1--line-height: 52px;
+  --text-h1--letter-spacing: -0.022em;
+  --text-h2: 36px;
+  --text-h2--line-height: 44px;
+  --text-h2--letter-spacing: -0.022em;
+  --text-h3: 28px;
+  --text-h3--line-height: 34px;
+  --text-h3--letter-spacing: -0.021em;
+  --text-h4: 24px;
+  --text-h4--line-height: 30px;
+  --text-h4--letter-spacing: -0.019em;
+  --text-h5: 20px;
+  --text-h5--line-height: 24px;
+  --text-h5--letter-spacing: -0.017em;
+  --text-body-xl: 18px;
+  --text-body-xl--line-height: 28px;
+  --text-body-l: 16px;
+  --text-body-l--line-height: 24px;
+  --text-body-m: 14px;
+  --text-body-m--line-height: 20px;
+  --text-body-s: 12px;
+  --text-body-s--line-height: 16px;
 }
 
-body {
-  font-family: var(--font-body);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-teal-200);
+    outline-offset: 2px;
+  }
+  /* Hide the default disclosure marker on accordions; we draw our own toggle. */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Centered content column: 1220px max (1440 design − 110px gutters), 16px gutters on phones */
+  .container-site {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-[110px];
+  }
+  .section-y {
+    @apply py-16 lg:py-28;
+  }
+  .heading-1 {
+    @apply text-[32px] leading-[40px] font-bold tracking-[-0.022em] sm:text-h1;
+  }
+  .heading-2 {
+    @apply text-[28px] leading-[36px] font-bold tracking-[-0.022em] sm:text-h2;
+  }
 }
