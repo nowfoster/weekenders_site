@@ -16,14 +16,25 @@ Marketing site for **Weekenders**, Now Foster's weekend fostering programme. It'
 |---|---|
 | `/` | Home - 1 |
 | `/become-a-weekender` | Weekender |
+| `/stories` | Stories |
+| `/stories/<slug>` | Story detail |
+| `/about-us` | About us |
+| `/about-us/meet-the-team` | Meet the team |
+| `/blog` | Blog |
+| `/blog/<slug>` | Blog post (republished from Medium; no Figma frame, styled like Story detail) |
 
-About us, the readiness checker, legal pages and the intro-chat sign-up form live on
+The readiness checker, donations, legal pages and the intro-chat sign-up form live on
 [nowfoster.org](https://nowfoster.org). The site links out to them.
 
 ## Editing content
 
-All copy and links live in **`src/content/site.ts`**: stories, stats, FAQs, the six steps, region
-postcode areas and the URLs behind each button. Images are pre-optimised WebP files in `public/images/`.
+Copy and links live in **`src/content/`**: `site.ts` (links, nav, home and Become a Weekender copy),
+`stories.ts`, `about.ts`, `team.ts` and `blog.ts`.
+
+Blog posts are written on [Medium](https://medium.com/@nowfoster) and republished here. Run `npm run fetch:blog`
+after publishing a new post: it reads the Medium RSS feed, saves each post (cleaned article HTML included) to
+`src/content/blog-posts.json` and its images to `public/images/blog/medium/`. Commit the results and the post
+gets its own page at `/blog/<slug>`. Choose the featured post in `src/content/blog.ts`. Images are pre-optimised WebP files in `public/images/`.
 
 ## Development
 
@@ -32,6 +43,7 @@ npm install
 npm run dev     # http://localhost:3000
 npm run build   # static site in ./out
 npm start       # serve ./out locally
+npm run fetch:blog  # pull the latest posts from Medium
 ```
 
 ## SEO

@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "Now Foster",
     "fostering London",
     "fostering Manchester",
-    "fostering Durham",
-    "fostering North Somerset",
+    "fostering North East England",
+    "fostering South West England",
   ],
   openGraph: {
     type: "website",
@@ -53,7 +53,7 @@ const organisationJsonLd = {
   email: site.email,
   description: site.description,
   identifier: `Registered Charity in England and Wales ${site.charityNumber}`,
-  areaServed: ["Greater London", "Greater Manchester", "County Durham", "North Somerset"].map((name) => ({
+  areaServed: ["North London", "Greater Manchester", "North East England", "South West England"].map((name) => ({
     "@type": "AdministrativeArea",
     name,
   })),

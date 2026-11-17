@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { SmartLink } from "./ButtonLink";
 import { links, nav } from "@/content/site";
+import { isActive } from "@/lib/isActive";
 
 export default function MobileMenu({ tone, current }: { tone: "light" | "dark"; current: string }) {
   const [open, setOpen] = useState(false);
@@ -42,9 +43,9 @@ export default function MobileMenu({ tone, current }: { tone: "light" | "dark"; 
                 <SmartLink
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  aria-current={item.href === current ? "page" : undefined}
+                  aria-current={isActive(item.href, current) ? "page" : undefined}
                   className={`block rounded-2xl px-4 py-3 text-body-l text-brand hover:bg-mint ${
-                    item.href === current ? "bg-mint font-semibold" : "font-medium"
+                    isActive(item.href, current) ? "bg-mint font-semibold" : "font-medium"
                   }`}
                 >
                   {item.label}

@@ -18,7 +18,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve@14 out",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "fetch:blog": "node scripts/fetch-medium.mjs"
   },
   "engines": {
     "node": ">=20"

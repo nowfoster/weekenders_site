@@ -98,4 +98,44 @@
   .heading-2 {
     @apply text-[28px] leading-[36px] font-bold tracking-[-0.022em] sm:text-h2;
   }
+
+  /* Blog post article HTML (from Medium, see scripts/fetch-medium.mjs). Matches the story article type. */
+  .post-body {
+    @apply flex flex-col gap-6 text-body-l sm:text-body-xl;
+  }
+  .post-body > p:first-child {
+    @apply text-[20px] leading-[30px] font-medium tracking-[-0.01em] sm:text-[22px] sm:leading-[34px];
+  }
+  .post-body h2 {
+    @apply pt-6 text-h4 font-semibold sm:text-h3;
+  }
+  .post-body h3 {
+    @apply pt-2 text-h5 font-semibold;
+  }
+  .post-body ul,
+  .post-body ol {
+    @apply flex flex-col gap-2 pl-6;
+  }
+  .post-body ul {
+    @apply list-disc;
+  }
+  .post-body ol {
+    @apply list-decimal;
+  }
+  .post-body li::marker {
+    @apply text-teal-200;
+  }
+  .post-body a {
+    @apply font-semibold text-brand underline underline-offset-4 hover:no-underline;
+  }
+  .post-body blockquote {
+    @apply rounded-[24px] bg-lilac-subtle p-6 text-h5 font-semibold sm:p-8;
+  }
+  .post-body figure img,
+  .post-body > img {
+    @apply h-auto w-full rounded-[24px];
+  }
+  .post-body figcaption {
+    @apply mt-3 text-center text-body-m text-ink-subtle;
+  }
 }

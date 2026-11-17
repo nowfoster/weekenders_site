@@ -1,4 +1,3 @@
-import SiteHeader from "../SiteHeader";
 import ButtonLink from "../ButtonLink";
 import { links } from "@/content/site";
 
@@ -6,16 +5,14 @@ export default function Hero() {
   return (
     <div className="bg-mint">
       <section className="relative isolate min-h-[640px] overflow-hidden rounded-b-[24px] bg-black lg:h-[810px]">
-        <SiteHeader variant="overlay" current="/" />
-
         {/* Photo */}
         <img
           src="/images/hero-photo.webp"
           alt=""
           width={2400}
-          height={1600}
+          height={1350}
           fetchPriority="high"
-          className="absolute inset-0 -z-20 size-full object-cover object-[70%_30%] opacity-80 lg:object-[0%_33%]"
+          className="absolute inset-0 -z-20 size-full max-w-none object-cover object-[75%_50%] opacity-80 lg:-top-[7.9%] lg:-left-[8.5%] lg:h-[125.5%] lg:w-[125.5%]"
         />
         {/* Decorative green spiral, top-left */}
         <img
@@ -45,7 +42,7 @@ export default function Hero() {
           className="pointer-events-none absolute top-[495px] left-[1189px] -z-10 hidden size-[379px] lg:block xl:left-auto xl:right-[-128px]"
         />
 
-        <div className="container-site flex flex-col gap-8 pt-40 pb-16 text-white lg:pt-[233px]">
+        <div className="container-site flex flex-col gap-8 pt-24 pb-16 text-white lg:pt-[233px]">
           <h1 className="max-w-[1100px] text-[44px] leading-[52px] font-bold tracking-[-0.022em] sm:text-[56px] sm:leading-[68px] lg:text-display-1">
             One weekend a month.
             <br />
@@ -56,7 +53,7 @@ export default function Hero() {
               Support a child or young person in care through fostering that fits around your life.
             </p>
             <p className="max-w-[520px] text-body-m">
-              Currently in Greater London, Greater Manchester, Durham, and North Somerset and surrounding areas.
+              Currently welcoming Weekenders across North London, Greater Manchester, North East England and South West England.
             </p>
           </div>
           <div>

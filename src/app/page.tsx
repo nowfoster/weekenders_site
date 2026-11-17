@@ -5,9 +5,10 @@ import HowItWorks from "@/components/home/HowItWorks";
 import Stories from "@/components/home/Stories";
 import Impact from "@/components/home/Impact";
 import Reach from "@/components/home/Reach";
-import SocialMedia from "@/components/home/SocialMedia";
 import Partners from "@/components/home/Partners";
+import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
+import SiteHeader from "@/components/SiteHeader";
 import { ogImage } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -23,13 +24,14 @@ export const metadata: Metadata = {
     url: "/",
     title: "Weekenders – one weekend a month, a lifetime of impact",
     description:
-      "Support a child or young person in care through fostering that fits around your life. Now in Greater London, Greater Manchester, Durham and North Somerset.",
+      "Support a child or young person in care through fostering that fits around your life. Now welcoming Weekenders across North London, Greater Manchester, North East England and South West England.",
   },
 };
 
 export default function Home() {
   return (
     <>
+      <SiteHeader variant="solid" current="/" />
       <main id="main">
         <Hero />
         <About />
@@ -37,10 +39,10 @@ export default function Home() {
         <Stories />
         <Impact />
         <Reach />
-        <SocialMedia />
         <Partners />
       </main>
-      <Footer />
+      <CtaBanner under="bg-white" />
+      <Footer under="bg-[#269298]" />
     </>
   );
 }

@@ -22,7 +22,7 @@ const cards = [
     number: "text-white opacity-10 left-[calc(100%-153px)] top-[-149px]",
     eyebrow: "text-teal-200 tracking-[1px]",
     body: "text-mint-50",
-    photo: { src: "/images/step3-photo.webp", w: 1000, h: 667, pos: "53% 87%", alt: "A smiling man carrying a laughing toddler on his shoulders" },
+    photo: { src: "/images/step3-photo.webp", w: 1400, h: 933, pos: "34% 76%", alt: "A man sitting in a chair at home, playing with a young child" },
   },
 ];
 

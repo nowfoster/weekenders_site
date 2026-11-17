@@ -1,5 +1,5 @@
 import { SmartLink } from "../ButtonLink";
-import { stories } from "@/content/site";
+import { homeStories, storyHref } from "@/content/stories";
 
 export default function Stories() {
   return (
@@ -16,8 +16,8 @@ export default function Stories() {
           </div>
 
           <ul className="grid gap-8 lg:grid-cols-2 lg:gap-x-[29px]">
-            {stories.map((story) => (
-              <li key={story.name} className="flex flex-col-reverse overflow-hidden rounded-[24px] bg-white sm:flex-row">
+            {homeStories.map((story) => (
+              <li key={story.slug} className="flex flex-col-reverse overflow-hidden rounded-[24px] bg-white sm:flex-row">
                 <article className="flex flex-col justify-between gap-5 p-8 sm:w-[311px] sm:shrink-0 lg:h-[452px]">
                   <div className="flex flex-col gap-8">
                     <div className="flex items-center justify-between">
@@ -32,7 +32,7 @@ export default function Stories() {
                     </div>
                   </div>
                   <SmartLink
-                    href={story.href}
+                    href={storyHref(story)}
                     className="inline-flex h-11 w-[140px] items-center justify-center rounded-full bg-brand text-body-m font-bold text-white hover:brightness-110"
                     aria-label={`Read ${story.name}'s story`}
                   >
@@ -41,13 +41,13 @@ export default function Stories() {
                 </article>
                 <div className="relative h-[280px] sm:h-auto sm:min-h-[452px] sm:flex-1">
                   <img
-                    src={story.image}
-                    alt={story.imageAlt}
+                    src={story.image?.src}
+                    alt={story.image?.alt ?? ""}
                     width={600}
                     height={900}
                     loading="lazy"
-                    className={`absolute inset-0 size-full object-cover ${story.flip ? "-scale-x-100" : ""}`}
-                    style={{ objectPosition: story.imagePosition }}
+                    className={`absolute inset-0 size-full object-cover ${story.image?.flip ? "-scale-x-100" : ""}`}
+                    style={{ objectPosition: story.image?.position }}
                   />
                 </div>
               </li>

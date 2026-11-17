@@ -2,6 +2,7 @@ import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import { PillLink, SmartLink } from "./ButtonLink";
 import { links, nav } from "@/content/site";
+import { isActive } from "@/lib/isActive";
 
 type Props = {
   /** "overlay" = frosted pill floating over the hero photo; "solid" = mint bar. */
@@ -18,7 +19,7 @@ export default function SiteHeader({ variant, current }: Props) {
   const navLinks = (
     <ul className={`hidden items-center lg:flex ${overlay ? "gap-2" : "gap-8"}`}>
       {nav.map((item) => {
-        const active = item.href === current;
+        const active = isActive(item.href, current);
         return (
           <li key={item.href}>
             <SmartLink

@@ -18,7 +18,7 @@
 
 [[redirects]]
   from = "/about_us"
-  to = "https://nowfoster.org/about_us"
+  to = "/about-us"
   status = 301
 
 [[redirects]]

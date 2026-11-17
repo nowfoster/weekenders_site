@@ -7,8 +7,9 @@ const columns = [
     title: "Now Foster",
     items: [
       { label: "Weekenders", href: "/become-a-weekender" },
-      { label: "About us", href: links.aboutUs },
-      { label: "Blog", href: links.blog },
+      { label: "About us", href: "/about-us" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact us", href: links.contact },
     ],
   },
   {
@@ -25,6 +26,7 @@ const columns = [
       { label: "Privacy policy", href: links.privacyPolicy },
       { label: "Cookie policy", href: links.cookiePolicy },
       { label: "Anti-slavery statement", href: links.modernSlavery },
+      { label: "Acknowledgements", href: links.acknowledgements },
     ],
   },
 ];

@@ -16,7 +16,7 @@ export const site = {
   name: "Weekenders by Now Foster",
   shortName: "Weekenders",
   description:
-    "Weekenders is weekend fostering from Now Foster: welcome a child or young person in care into your home one weekend a month. Available in Greater London, Greater Manchester, Durham and North Somerset.",
+    "Weekenders is weekend fostering from Now Foster: welcome a child or young person in care into your home one weekend a month. Available across North London, Greater Manchester, North East England and South West England.",
   charityNumber: "1207932",
   email: "hello@nowfoster.org",
 };
@@ -35,43 +35,35 @@ export const links = {
   // No standalone cookie policy exists yet on nowfoster.org; cookies are covered by the privacy policy.
   cookiePolicy: `${NOW_FOSTER}/privacy_policy`,
   modernSlavery: `${NOW_FOSTER}/modern_slavery_statement`,
+  /** TODO: no acknowledgements page exists yet; points at Now Foster's about page for now. */
+  acknowledgements: `${NOW_FOSTER}/about_us`,
+  contact: "mailto:hello@nowfoster.org",
   instagram: "https://www.instagram.com/nowfosteruk/",
   linkedin: "https://www.linkedin.com/company/nowfoster/",
   facebook: "http://facebook.com/nowfosterorg",
   /** TODO: replace with the URL of Amy's video once it's published. */
   amyStory: "https://medium.com/@nowfoster",
+  nowFoster: NOW_FOSTER,
+  /** TODO: confirm Now Foster's donation page URL. The About us widget appends ?amount=25&frequency=once|monthly. */
+  donate: `${NOW_FOSTER}/donate`,
+  /** TODO: confirm this Charity Commission register URL resolves for Now Foster. */
+  charityRegister: `https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/${site.charityNumber}`,
 };
 
 export const nav = [
   { label: "Home", href: "/" },
   { label: "Become a Weekender", href: "/become-a-weekender" },
-  { label: "Stories", href: "/#stories" },
-  { label: "About us", href: links.aboutUs },
-  { label: "Blog", href: links.blog },
+  { label: "Stories", href: "/stories" },
+  { label: "About us", href: "/about-us" },
+  { label: "Blog", href: "/blog" },
 ] as const;
 
 export const regions = [
-  { name: "Durham", dot: "/images/map/dot-durham.svg", chipDot: "/images/map/chipdot-durham.svg" },
+  { name: "North East England", dot: "/images/map/dot-durham.svg", chipDot: "/images/map/chipdot-durham.svg" },
   { name: "Greater Manchester", dot: "/images/map/dot-manchester.svg", chipDot: "/images/map/chipdot-manchester.svg" },
-  { name: "Greater London", dot: "/images/map/dot-london.svg", chipDot: "/images/map/chipdot-london.svg" },
-  { name: "North Somerset", dot: "/images/map/dot-somerset.svg", chipDot: "/images/map/chipdot-somerset.svg" },
+  { name: "Greater North London", dot: "/images/map/dot-london.svg", chipDot: "/images/map/chipdot-london.svg" },
+  { name: "South West England", dot: "/images/map/dot-somerset.svg", chipDot: "/images/map/chipdot-somerset.svg" },
 ] as const;
-
-export type RegionName = (typeof regions)[number]["name"];
-
-/**
- * Rough postcode-area → region lookup for the "Check your area" widget.
- * Covers each region "and surrounding areas", so it is a guide, not a guarantee.
- */
-export const postcodeAreas: Record<RegionName, string[]> = {
-  Durham: ["DH", "DL", "SR", "TS", "NE"],
-  "Greater Manchester": ["M", "BL", "OL", "SK", "WN", "WA"],
-  "Greater London": [
-    "E", "EC", "N", "NW", "SE", "SW", "W", "WC",
-    "BR", "CR", "DA", "EN", "HA", "IG", "KT", "RM", "SM", "TW", "UB",
-  ],
-  "North Somerset": ["BS", "BA", "TA"],
-};
 
 export const howItWorks = [
   {
@@ -88,53 +80,6 @@ export const howItWorks = [
     step: 3,
     title: "Welcome a child for the weekend",
     body: "With everything in place, you'll be ready to offer a child a safe, happy space one weekend a month.",
-  },
-] as const;
-
-export const stories = [
-  {
-    name: "Nadine",
-    quote: "Fostering has been, hands down, the best thing that I have done over the past decade.",
-    summary:
-      "Nadine has been fostering for over a decade. She lives in North London and became a Weekender to stay involved in a way that fits around her work…",
-    image: "/images/story-nadine.webp",
-    imageAlt: "Nadine, smiling, with her hands clasped",
-    imagePosition: "50% 50%",
-    flip: true,
-    href: links.blog,
-  },
-  {
-    name: "Martin and Ruth",
-    quote: "We love seeing her dream big dreams, knowing that we have been able to help her.",
-    summary:
-      "Martin and Ruth live in Manchester with their two children. They first welcomed a 10 year old girl for weekend stays, and three years on, she's part of the family...",
-    image: "/images/story-martin-ruth.webp",
-    imageAlt: "Martin and Ruth laughing together at home",
-    imagePosition: "50% 50%",
-    flip: false,
-    href: links.blog,
-  },
-  {
-    name: "Ali",
-    quote: "She's like a big sister and a really good friend at the same time.",
-    summary:
-      "Ali lives in Durham and works full time. Becoming a Weekender meant he could foster without changing his week, and build a bond that's grown into something special…",
-    image: "/images/story-ali.webp",
-    imageAlt: "Ali smiling outdoors in a blue t-shirt",
-    imagePosition: "50% 30%",
-    flip: false,
-    href: links.blog,
-  },
-  {
-    name: "Ahmed",
-    quote: "Fostering has been, hands down, the best thing that I have done over the past decade.",
-    summary:
-      "Ahmed is a teacher who wasn't sure fostering would fit around their life. One intro chat later, they're now two years into being a Weekender…",
-    image: "/images/story-ahmed.webp",
-    imageAlt: "Ahmed looking into the distance outdoors",
-    imagePosition: "50% 50%",
-    flip: false,
-    href: links.blog,
   },
 ] as const;
 
