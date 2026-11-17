@@ -1,10 +1,11 @@
 /**
  * "Meet the team" page copy. Edit this file to change people, roles or bios.
  *
+ * Team, trustees and their photos come from nowfoster.org/about_us.
  * Photos: every person can take an optional `image`. Drop a WebP headshot into
  * public/images/team/ and set e.g. `image: { src: "/images/team/sila-krohn.webp", alt: "Sila Krohn" }`.
  * Without an image, a neutral placeholder block is shown.
- * TODO: the design only has placeholder photos for the team, Journey Guides and trustees.
+ * TODO: the Journey Guides (Kira, Freya) are from the design and aren't on nowfoster.org: confirm them and add photos.
  */
 
 export type PersonImage = {
@@ -49,21 +50,13 @@ export const weekendersTeam = {
   title: "Weekenders team",
   intro:
     "Our passionate Weekenders Team works across the country to make every future Weekender feel welcomed, supported and excited throughout their journey, from the very first conversation to being matched with a child and beyond.",
+  // From nowfoster.org/about_us (no pronouns or direct emails are published there).
   members: [
-    { name: "Sila Krohn", role: "Weekenders Programme Manager", pronouns: "he/him", email: "sila@nowfoster.org" },
-    { name: "Neha Patel", role: "Weekenders Regional Manager – London", pronouns: "she/her", email: "neha@nowfoster.org" },
-    {
-      name: "Alex Smith",
-      role: "Weekenders Regional Manager – South East",
-      pronouns: "they/them",
-      email: "alex@nowfoster.org",
-    },
-    {
-      name: "Patty Peppermint",
-      role: "Weekenders Regional Manager – North West",
-      pronouns: "she/her",
-      email: "patty@nowfoster.org",
-    },
+    { name: "Sara Fernandez", role: "CEO", image: { src: "/images/team/sara-fernandez.webp", alt: "Sara Fernandez" } },
+    { name: "Laurie Kilby", role: "Co-founder and Social Work Practice Lead", image: { src: "/images/team/laurie-kilby.webp", alt: "Laurie Kilby" } },
+    { name: "Jan Blum", role: "Experience Lead & Founding Partner", image: { src: "/images/team/jan-blum.webp", alt: "Jan Blum" } },
+    { name: "Katie Waldegrave", role: "Co-founder and Partnerships Lead", image: { src: "/images/team/katie-waldegrave.webp", alt: "Katie Waldegrave" } },
+    { name: "Sila Krohn", role: "Weekenders Programme Manager", image: { src: "/images/team/sila-krohn.webp", alt: "Sila Krohn" } },
   ] satisfies TeamMember[] as TeamMember[],
 };
 
@@ -117,18 +110,31 @@ export const trustees = {
     "Weekenders is a programme created by Now Foster, a charity working to reimagine fostering.",
     "Our trustees bring a wealth of experience and expertise to the charity, working with us to bring more people into fostering and help children in care build lasting relationships.",
   ],
-  // TODO: the design's counter reads "01 / 04" but only shows three trustees; add the fourth here.
+  // From nowfoster.org/about_us
   people: [
     {
       name: "Andy Theedom",
       role: "Trustee",
-      bio: "A Director in PwC's Local Public Services team who works with local authorities and charities across the UK.",
+      bio: "A Director in PwC's Local Public Services team who works with local authorities and charities across the UK, Andy brings challenge and insight based on his experience of working in and around fostering and achieving change to improve local outcomes.",
+      image: { src: "/images/team/andy-theedom.webp", alt: "Andy Theedom" },
     },
-    { name: "Mary Jackson", role: "Trustee", bio: "Chief executive of Frontline, England's largest social work charity" },
+    {
+      name: "Mary Jackson",
+      role: "Trustee",
+      bio: "Chief executive of Frontline, England's largest social work charity. She was previously on the charity's senior team for over six years. She has 20+ years' experience in leadership, change management and communications at operational and strategic levels.",
+      image: { src: "/images/team/mary-jackson.webp", alt: "Mary Jackson" },
+    },
     {
       name: "Tasha Unwin",
       role: "Trustee",
-      bio: "Tasha has worked as a frontline practitioner in Children's Services since 2018.",
+      bio: "Tasha has worked as a frontline practitioner in Children's Services since 2018. She brings both this first hand knowledge, and her experience of fostering in her own family to Now Foster.",
+      image: { src: "/images/team/tasha-unwin.webp", alt: "Tasha Unwin" },
+    },
+    {
+      name: "Ed Baden-Powell",
+      role: "Trustee",
+      bio: "A senior partner at Simkins LLP, Ed is a lawyer with a wide experience of working with charities delivering opportunities for young people in challenging circumstances. Ed has also fostered and adopted, and he is keen to see more joined-up support for prospective carers.",
+      image: { src: "/images/team/ed-baden-powell.webp", alt: "Ed Baden-Powell" },
     },
   ] satisfies Trustee[] as Trustee[],
 };
