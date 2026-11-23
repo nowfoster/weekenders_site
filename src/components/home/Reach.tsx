@@ -10,6 +10,8 @@ const chips = [
   {
     name: "North East England",
     x: 393,
+    /** Right-hand chips are pinned by their right edge (design width 157) so they can't spill off the map. */
+    right: 393 + 157,
     y: 198.8,
     dot: "/images/map/chipdot-durham.svg",
   },
@@ -28,6 +30,7 @@ const chips = [
   {
     name: "Greater North London",
     x: 385,
+    right: 385 + 168,
     y: 536.7,
     dot: "/images/map/chipdot-london.svg",
   },
@@ -85,25 +88,29 @@ export default function Reach() {
           </div>
 
           <div
-            className="relative w-full max-w-[594px] overflow-hidden rounded-[24px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center"
+            className="relative w-full max-w-[594px] overflow-hidden rounded-[24px] [container-type:inline-size] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center"
             style={{
               aspectRatio: `${W} / ${H}`,
               backgroundImage: "linear-gradient(122.3deg, #d9eff1 0%, #e2f8fa 45%, #f3ecf3 100%)",
             }}
           >
             <MapArt />
-            {/* Region chips */}
+            {/* Region chips: sized in container units so they scale with the map (never below 9px text) */}
             {chips.map((c) => (
               <div
                 key={c.name}
                 aria-hidden
-                className="absolute flex items-center gap-1.5 rounded-[12px] bg-white px-2 py-1 text-[9px] leading-[12px] font-semibold whitespace-nowrap drop-shadow-[0_8px_10px_rgba(22,64,69,0.22)] sm:gap-2 sm:px-3 sm:py-2 sm:text-body-s"
+                className="absolute flex items-center rounded-[1em] bg-white font-semibold whitespace-nowrap drop-shadow-[0_8px_10px_rgba(22,64,69,0.22)]"
                 style={{
-                  left: `${(c.x / W) * 100}%`,
+                  ...("right" in c && c.right ? { right: `${((W - c.right) / W) * 100}%` } : { left: `${(c.x / W) * 100}%` }),
                   top: `${(c.y / H) * 100}%`,
+                  fontSize: `max(9px, ${(12 / W) * 100}cqw)`,
+                  lineHeight: 1.333,
+                  padding: "0.667em 1em",
+                  gap: "0.667em",
                 }}
               >
-                <img src={c.dot} alt="" width={8} height={8} className="size-1.5 sm:size-2" />
+                <img src={c.dot} alt="" width={8} height={8} className="size-[0.667em]" />
                 {c.name}
               </div>
             ))}
