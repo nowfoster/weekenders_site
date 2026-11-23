@@ -22,7 +22,7 @@ export default function Funding() {
       <div>
         {fundingSources.map((f) => (
           <div key={f.id} className={f.under}>
-            <details open={f.open} className={`group rounded-t-[24px] ${f.bg}`}>
+            <details className={`group rounded-t-[24px] ${f.bg}`}>
               <summary className="container-site flex cursor-pointer items-start gap-3 py-6 sm:items-center sm:gap-8">
                 <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white sm:size-16">
                   <img src={f.icon} alt="" width={24} height={24} className="size-6" />

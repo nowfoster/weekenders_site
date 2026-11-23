@@ -85,7 +85,6 @@ export type FundingSource = {
   /** Band colour; `under` is the previous band's colour, showing behind the rounded top corners. */
   bg: string;
   under: string;
-  open?: boolean;
   paragraphs: string[];
   /** Adds "To find out more please email <site.email>" after the paragraphs. */
   emailLine?: boolean;
@@ -106,7 +105,6 @@ export const fundingSources: FundingSource[] = [
     icon: "/images/about/icon-building.svg",
     bg: "bg-lilac-subtle",
     under: "bg-white",
-    open: true,
     paragraphs: [
       "Now Foster and the Weekenders team work in partnership with local authorities and selected independent fostering agencies. For each Weekender who goes to the approval panel, Now Foster receives a recruitment fee, which is reinvested into the Weekenders programme.",
       "We are enormously grateful for support from a number of trusts, foundations and individual donors including the ones listed below and a number of others who choose to remain anonymous.",
@@ -150,7 +148,6 @@ export const fundingSources: FundingSource[] = [
     icon: "/images/about/icon-heart.svg",
     bg: "bg-lilac",
     under: "bg-[#d5b8d2]",
-    open: true,
     paragraphs: [
       "Every donation helps us reach, train and support more Weekenders, so more young people in care have someone in their corner. Monthly gifts are especially valuable because they let us plan ahead.",
     ],
