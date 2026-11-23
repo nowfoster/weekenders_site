@@ -7,7 +7,7 @@ export default function Trustees() {
   return (
     <section aria-labelledby="trustees-heading" className="overflow-x-clip bg-white">
       <div className="container-site flex flex-col gap-12 py-16 lg:py-20">
-        <div className="lg:-mr-[110px]">
+        <div className="lg:-mr-12 xl:-mr-[110px]">
           <Carousel
             label="Trustees"
             intro={

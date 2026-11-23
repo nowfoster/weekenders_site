@@ -17,7 +17,7 @@ export default function SiteHeader({ variant, current }: Props) {
   const activeBorder = overlay ? "border-white" : "border-ink-icon";
 
   const navLinks = (
-    <ul className={`hidden items-center lg:flex ${overlay ? "gap-2" : "gap-8"}`}>
+    <ul className={`hidden items-center lg:flex ${overlay ? "gap-2" : "gap-6 xl:gap-8"}`}>
       {nav.map((item) => {
         const active = isActive(item.href, current);
         return (
@@ -39,7 +39,7 @@ export default function SiteHeader({ variant, current }: Props) {
 
   if (overlay) {
     return (
-      <header className="absolute inset-x-0 top-4 z-30 px-4 sm:top-6 sm:px-8 lg:px-[110px]">
+      <header className="absolute inset-x-0 top-4 z-30 px-4 sm:top-6 sm:px-8 lg:px-12 xl:px-[110px]">
         <nav
           aria-label="Main"
           className="relative mx-auto flex h-[76px] max-w-[1220px] items-center justify-between rounded-full border border-white/20 bg-white/10 pr-3.5 pl-7 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.25)] backdrop-blur-[12.5px]"
@@ -61,7 +61,7 @@ export default function SiteHeader({ variant, current }: Props) {
     <header className="relative z-30 bg-mint">
       <nav
         aria-label="Main"
-        className="container-site flex h-20 items-center justify-between lg:h-28"
+        className="container-site flex h-20 items-center justify-between gap-8 lg:h-28"
       >
         <Logo tone="dark" />
         {navLinks}

@@ -90,7 +90,7 @@ export function PostPrevNext({ newer, older }: { newer?: BlogPost; older?: BlogP
   const item = (post: BlogPost, label: string, align: "left" | "right") => (
     <Link
       href={post.href}
-      className={`group flex flex-1 flex-col gap-2 px-4 py-8 sm:px-8 lg:px-[110px] ${align === "right" ? "sm:items-end sm:text-right" : ""}`}
+      className={`group flex flex-1 flex-col gap-2 px-4 py-8 sm:px-8 lg:px-12 xl:px-[110px] ${align === "right" ? "sm:items-end sm:text-right" : ""}`}
     >
       <span className="text-body-s font-bold tracking-[0.12em] text-brand uppercase">{label}</span>
       <span className="text-h5 font-semibold group-hover:underline group-hover:underline-offset-4">{post.title}</span>

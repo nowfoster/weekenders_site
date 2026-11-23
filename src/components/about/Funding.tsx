@@ -37,7 +37,7 @@ export default function Funding() {
                 </span>
               </summary>
 
-              <div className="container-site flex flex-col gap-6 pb-12 sm:pl-[calc(2rem+96px)] lg:flex-row lg:gap-8 lg:pl-[calc(110px+96px)]">
+              <div className="container-site flex flex-col gap-6 pb-12 sm:pl-[calc(2rem+96px)] lg:flex-row lg:gap-8 lg:pl-[calc(3rem+96px)] xl:pl-[calc(110px+96px)]">
                 <div className="flex flex-col gap-6 text-body-l lg:flex-1">
                   {f.paragraphs.map((p) => (
                     <p key={p.slice(0, 24)}>{p}</p>

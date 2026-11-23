@@ -85,9 +85,10 @@
 }
 
 @layer components {
-  /* Centered content column: 1220px max (1440 design − 110px gutters), 16px gutters on phones */
+  /* Centered content column: 1220px max (1440 design − 110px gutters), 16px gutters on phones.
+     Gutters stay at 48px until xl so small-desktop widths keep enough room for the layouts. */
   .container-site {
-    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-[110px];
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-12 xl:px-[110px];
   }
   .section-y {
     @apply py-16 lg:py-28;
