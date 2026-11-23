@@ -5,7 +5,7 @@ export default function OurStory() {
   return (
     <section className="bg-white" aria-labelledby="our-story-heading">
       <div className="container-site section-y flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col gap-5 lg:w-[596px] lg:shrink">
+        <div className="flex min-w-0 flex-col gap-5 lg:max-w-[596px] lg:flex-1">
           <p className="text-body-m font-bold tracking-[0.12em] text-brand uppercase">{ourStory.eyebrow}</p>
           <h2 id="our-story-heading" className="heading-1 pb-2">
             {ourStory.heading}
@@ -38,7 +38,7 @@ export default function OurStory() {
           </div>
         </div>
 
-        <div className="relative isolate flex min-h-[406px] w-full flex-col justify-end overflow-hidden rounded-[32px] p-6 sm:min-h-[560px] lg:h-[708px] lg:w-[595px] lg:shrink-0 lg:justify-start lg:p-10">
+        <div className="relative isolate flex min-h-[406px] w-full flex-col justify-end overflow-hidden rounded-[32px] p-6 sm:min-h-[560px] lg:h-[708px] lg:w-1/2 lg:max-w-[595px] lg:shrink-0 lg:justify-start lg:p-10">
           <img
             src={ourStory.image}
             alt={ourStory.imageAlt}
