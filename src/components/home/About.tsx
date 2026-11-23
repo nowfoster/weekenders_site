@@ -85,8 +85,8 @@ function Shape({
 export default function About() {
   return (
     <section className="overflow-hidden bg-mint" aria-labelledby="about-heading">
-      <div className="container-site flex flex-col gap-24 pt-16 pb-24 lg:flex-row lg:items-start lg:justify-between lg:gap-8 lg:pt-[252px] lg:pb-[93px]">
-        <div className="flex w-full flex-col gap-8 lg:max-w-[618px] lg:flex-1">
+      <div className="container-site flex flex-col gap-8 pt-16 pb-24 lg:flex-row lg:items-start lg:justify-between lg:gap-8 lg:pt-[252px] lg:pb-[93px]">
+        <div className="relative z-10 flex w-full flex-col gap-8 lg:max-w-[618px] lg:flex-1">
           <h2 id="about-heading" className="heading-1">
             About the weekenders programme
           </h2>
@@ -103,7 +103,8 @@ export default function About() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[571px] lg:mx-0 lg:w-[46%] lg:shrink-0 xl:translate-x-[24px]">
+        {/* Top margin (stacked layout) clears the shapes that sit above the photo; they scale with its width. */}
+        <div className="relative mx-auto mt-[min(32%,183px)] w-full max-w-[571px] lg:mx-0 lg:mt-0 lg:w-[46%] lg:shrink-0 xl:translate-x-[24px]">
           <div className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }}>
             <Brush
               bbox={[66.24, -264.5, 676.04, 641.56]}
