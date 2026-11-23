@@ -32,7 +32,7 @@ export default function Impact() {
                     WebkitMaskSize: "100% 100%",
                   }}
                 />
-                <div className="flex items-start gap-6">
+                <div className="flex items-start gap-6 lg:flex-col lg:gap-4 min-[1400px]:flex-row min-[1400px]:gap-6">
                   <img src={s.icon} alt="" aria-hidden width={64} height={64} className="size-12 shrink-0 lg:size-16" />
                   <p className="flex flex-col gap-1">
                     <strong className="text-[40px] leading-[50px] font-bold tracking-[-0.022em] whitespace-nowrap text-brand lg:text-display-3">
