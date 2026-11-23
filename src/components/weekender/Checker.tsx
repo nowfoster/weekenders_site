@@ -32,8 +32,8 @@ function Option({ label, state }: { label: string; state: "selected" | "default"
 /** Static illustration of the readiness checker (579 × 449 canvas). */
 function CheckerMockup() {
   return (
-    <div className="relative h-[225px] w-[290px] sm:h-[404px] sm:w-[521px] md:h-[449px] md:w-[579px]" aria-hidden>
-      <div className="absolute top-0 left-0 h-[449px] w-[579px] origin-top-left scale-50 sm:scale-90 md:scale-100">
+    <div className="relative h-[225px] w-[290px] shrink-0 sm:h-[404px] sm:w-[521px] md:h-[449px] md:w-[579px] lg:mr-10 lg:h-[404px] lg:w-[521px] xl:mr-11 xl:h-[449px] xl:w-[579px]" aria-hidden>
+      <div className="absolute top-0 left-0 h-[449px] w-[579px] origin-top-left scale-50 sm:scale-90 md:scale-100 lg:scale-90 xl:scale-100">
         <div className="absolute top-0 left-[41px] h-[449px] w-[538px] overflow-hidden rounded-[24px] bg-mint">
           <img src="/images/checker/wash-1.svg" alt="" className="absolute top-[-230px] left-[246px] h-[460px] w-[520px] max-w-none" />
           <img src="/images/checker/wash-2.svg" alt="" className="absolute top-[140px] left-[-204px] h-[460px] w-[500px] max-w-none" />
@@ -105,7 +105,7 @@ export default function Checker() {
     <div className="bg-white">
       <section className="overflow-hidden rounded-[24px] border-b border-line" aria-labelledby="checker-heading">
         <div className="container-site section-y flex flex-col items-center gap-12 lg:flex-row lg:justify-center lg:gap-8">
-          <div className="flex w-full flex-col items-start gap-[26px] lg:w-[591px] lg:shrink-0">
+          <div className="flex w-full min-w-0 flex-col items-start gap-[26px] lg:max-w-[591px] lg:flex-1">
             <h2 id="checker-heading" className="heading-2">
               Just curious? Start here
             </h2>
