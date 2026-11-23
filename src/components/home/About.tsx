@@ -56,8 +56,10 @@ function Shape({
   inner: number;
   rotate: number;
   src: string;
-  inset: string;
+  /** Where the SVG sits inside the rotated square, as [top, left, width, height] percentages. */
+  inset: [number, number, number, number];
 }) {
+  const [top, left, width, height] = inset;
   const [x, y, s] = bbox;
   return (
     <div className="absolute flex items-center justify-center" style={box(x, y, s, s)}>
@@ -69,7 +71,12 @@ function Shape({
           transform: `rotate(${rotate}deg)`,
         }}
       >
-        <img src={src} alt="" className="absolute block size-full" style={{ inset }} />
+        <img
+          src={src}
+          alt=""
+          className="absolute block max-w-none"
+          style={{ top: `${top}%`, left: `${left}%`, width: `${width}%`, height: `${height}%` }}
+        />
       </div>
     </div>
   );
@@ -79,7 +86,7 @@ export default function About() {
   return (
     <section className="overflow-hidden bg-mint" aria-labelledby="about-heading">
       <div className="container-site flex flex-col gap-24 pt-16 pb-24 lg:flex-row lg:items-start lg:justify-between lg:gap-8 lg:pt-[252px] lg:pb-[93px]">
-        <div className="flex w-full flex-col gap-8 lg:w-[618px] lg:shrink-0">
+        <div className="flex w-full flex-col gap-8 lg:max-w-[618px] lg:flex-1">
           <h2 id="about-heading" className="heading-1">
             About the weekenders programme
           </h2>
@@ -96,7 +103,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[571px] lg:mx-0 lg:w-[571px] lg:shrink-0 lg:translate-x-[24px]">
+        <div className="relative mx-auto w-full max-w-[571px] lg:mx-0 lg:w-[46%] lg:shrink-0 xl:translate-x-[24px]">
           <div className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }}>
             <Brush
               bbox={[66.24, -264.5, 676.04, 641.56]}
@@ -121,14 +128,14 @@ export default function About() {
                 inner={84.17}
                 rotate={-26.61}
                 src="/images/icons/shape-quarter-1.svg"
-                inset="25% 50% 6.7% 0"
+                inset={[25, 0, 50, 68.3]}
               />
               <Shape
                 bbox={[-63, 50.53, 202.35]}
                 inner={145}
                 rotate={144.33}
                 src="/images/icons/shape-ring-half.svg"
-                inset="50% 0 0 0"
+                inset={[50, 0, 100, 50]}
               />
               <Brush
                 bbox={[-139.54, 252.53, 479.31, 388.61]}
@@ -142,14 +149,14 @@ export default function About() {
                 inner={84.17}
                 rotate={-26.61}
                 src="/images/icons/shape-quarter-2.svg"
-                inset="25% 50% 6.7% 0"
+                inset={[25, 0, 50, 68.3]}
               />
               <Shape
                 bbox={[441, 300.53, 194.59]}
                 inner={145}
                 rotate={-26.61}
                 src="/images/icons/shape-yellow-half.svg"
-                inset="50% 0 0 0"
+                inset={[50, 0, 100, 50]}
               />
             </div>
           </div>
