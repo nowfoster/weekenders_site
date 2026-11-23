@@ -19,7 +19,7 @@ export default function CtaBanner({ under = "bg-white" }: { under?: string }) {
           width={484}
           height={485}
           loading="lazy"
-          className="pointer-events-none absolute -top-[155px] -left-[86px] -z-10 size-[300px] object-cover sm:size-[484px]"
+          className="pointer-events-none absolute -top-[110px] -left-[60px] -z-10 size-[260px] object-cover sm:-top-[155px] sm:-left-[86px] sm:size-[484px]"
         />
         <img
           src="/images/green-spiral-cta.webp"
@@ -28,7 +28,7 @@ export default function CtaBanner({ under = "bg-white" }: { under?: string }) {
           width={469}
           height={469}
           loading="lazy"
-          className="pointer-events-none absolute -right-[160px] -bottom-[200px] -z-10 size-[300px] rotate-180 object-cover sm:size-[469px] lg:right-auto lg:bottom-auto lg:left-[calc(50%+300px)] lg:top-[31px]"
+          className="pointer-events-none absolute -right-[70px] -bottom-[110px] -z-10 size-[260px] rotate-180 object-cover sm:-right-[160px] sm:-bottom-[200px] sm:size-[469px] lg:right-auto lg:bottom-auto lg:left-[calc(50%+300px)] lg:top-[31px]"
         />
         <div className="mx-auto flex max-w-[1216px] flex-col items-center gap-10 text-center">
           <div className="flex flex-col items-center gap-5">
