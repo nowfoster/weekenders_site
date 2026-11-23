@@ -49,7 +49,7 @@ export default function Impact() {
           <div className="flex flex-col items-center gap-3 text-center">
             <h3 className="text-[24px] leading-[30px] font-semibold tracking-[-0.021em] sm:text-h3">Could you be a Weekender?</h3>
             <p className="text-body-l">Find out more about weekend fostering and how you could help.</p>
-            <div className="pt-4">
+            <div className="w-full pt-4 sm:w-auto">
               <ButtonLink href={links.bookIntroChat}>Book an intro chat</ButtonLink>
             </div>
           </div>

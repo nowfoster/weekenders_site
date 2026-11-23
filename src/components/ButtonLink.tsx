@@ -36,7 +36,7 @@ export function SmartLink({
   );
 }
 
-/** Pill button with circular arrow ("With icon" button in Figma). */
+/** Pill button with circular arrow ("With icon" button in Figma). Primary CTA: full width on phones. */
 export default function ButtonLink({
   href,
   children,
@@ -52,7 +52,7 @@ export default function ButtonLink({
   return (
     <SmartLink
       href={href}
-      className={`group inline-flex h-16 shrink-0 items-center gap-4 rounded-full py-2 pr-2 pl-7 text-body-l font-semibold transition hover:brightness-110 ${s.pill} ${className}`}
+      className={`group inline-flex h-16 shrink-0 items-center gap-4 rounded-full py-2 pr-2 pl-7 max-sm:w-full max-sm:justify-between text-body-l font-semibold transition hover:brightness-110 ${s.pill} ${className}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <span

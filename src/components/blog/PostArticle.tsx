@@ -74,7 +74,7 @@ export function PostBody({ post }: { post: BlogPost }) {
         <div className="flex flex-col items-start gap-4 rounded-[24px] bg-lilac-subtle p-8">
           <h2 className="text-h5 font-semibold">{blogSidebar.title}</h2>
           <p className="text-body-l">{blogSidebar.body}</p>
-          <ButtonLink href={links.bookIntroChat} className="mt-2 w-full max-w-[288px] justify-between">
+          <ButtonLink href={links.bookIntroChat} className="mt-2 w-full justify-between sm:max-w-[288px]">
             Book an intro chat
           </ButtonLink>
         </div>

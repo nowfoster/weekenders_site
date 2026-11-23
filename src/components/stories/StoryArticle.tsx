@@ -47,7 +47,7 @@ export default function StoryArticle({ story }: { story: Story }) {
         <div className="flex flex-col items-start gap-4 rounded-[24px] bg-brand p-8 text-white">
           <h2 className="text-h4 font-semibold">Inspired by this story?</h2>
           <p className="text-body-l">Find out what one weekend a month could look like for you.</p>
-          <ButtonLink href={links.bookIntroChat} variant="light" className="mt-2 w-full max-w-[288px] justify-between">
+          <ButtonLink href={links.bookIntroChat} variant="light" className="mt-2 w-full justify-between sm:max-w-[288px]">
             Book an intro chat
           </ButtonLink>
         </div>
