@@ -20,7 +20,7 @@ export default function AmyFeature({
       <SmartLink
         href={amyStory.href}
         aria-label="Watch Amy's story"
-        className="group relative block aspect-[593/459] w-full overflow-hidden rounded-[24px] lg:w-[593px] lg:shrink-0"
+        className="group relative block aspect-[593/459] w-full overflow-hidden rounded-[24px] lg:w-1/2 lg:max-w-[593px] lg:shrink-0"
       >
         <img
           src={amyStory.image.src}
@@ -35,7 +35,7 @@ export default function AmyFeature({
         </span>
       </SmartLink>
 
-      <div className="flex flex-col items-start gap-6 lg:w-[591px]">
+      <div className="flex min-w-0 flex-col items-start gap-6 lg:max-w-[591px] lg:flex-1">
         <div className="flex h-[71px] w-full items-center justify-between">
           <p className="text-body-m">{amyStory.label}</p>
           <img src="/images/icons/icon-quote-large.svg" alt="" aria-hidden width={61.5} height={42.6} className="mr-[2px]" />
