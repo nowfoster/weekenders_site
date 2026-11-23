@@ -57,7 +57,7 @@ export default function Hero() {
             </p>
           </div>
           <div>
-            <ButtonLink href={links.bookIntroChat} variant="light" className="pl-4! pr-5!">
+            <ButtonLink href={links.bookIntroChat} variant="light">
               Book an intro chat
             </ButtonLink>
           </div>
