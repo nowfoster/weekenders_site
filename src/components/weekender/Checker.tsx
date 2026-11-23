@@ -1,4 +1,5 @@
 import ButtonLink from "../ButtonLink";
+import FitToWidth from "./FitToWidth";
 import { links } from "@/content/site";
 
 function Chip({ label, dot, className }: { label: string; dot: string; className: string }) {
@@ -29,11 +30,14 @@ function Option({ label, state }: { label: string; state: "selected" | "default"
   );
 }
 
-/** Static illustration of the readiness checker (579 × 449 canvas). */
+/** Static illustration of the readiness checker (579 × 449 canvas), scaled to fit its column. */
 function CheckerMockup() {
   return (
-    <div className="relative h-[225px] w-[290px] shrink-0 sm:h-[404px] sm:w-[521px] md:h-[449px] md:w-[579px] lg:mr-10 lg:h-[404px] lg:w-[521px] xl:mr-11 xl:h-[449px] xl:w-[579px]" aria-hidden>
-      <div className="absolute top-0 left-0 h-[449px] w-[579px] origin-top-left scale-50 sm:scale-90 md:scale-100 lg:scale-90 xl:scale-100">
+    // 624px wide = the 579px canvas plus the chip that pokes out past its right edge.
+    // Phones: full width less ~20px each side. Desktop: 90% size until xl, then full size.
+    <div className="w-full max-w-[624px] px-1 sm:px-0 lg:w-[562px] lg:shrink-0 xl:w-[624px]" aria-hidden>
+      <FitToWidth width={624} height={449} className="w-full">
+      <div className="relative h-[449px] w-[579px]">
         <div className="absolute top-0 left-[41px] h-[449px] w-[538px] overflow-hidden rounded-[24px] bg-mint">
           <img src="/images/checker/wash-1.svg" alt="" className="absolute top-[-230px] left-[246px] h-[460px] w-[520px] max-w-none" />
           <img src="/images/checker/wash-2.svg" alt="" className="absolute top-[140px] left-[-204px] h-[460px] w-[500px] max-w-none" />
@@ -96,6 +100,7 @@ function CheckerMockup() {
         <Chip label="What if I work full time?" dot="/images/checker/dot-2.svg" className="top-[95px] left-[461px]" />
         <Chip label="Am I old enough to foster?" dot="/images/checker/dot-3.svg" className="top-[400px] left-0" />
       </div>
+      </FitToWidth>
     </div>
   );
 }
