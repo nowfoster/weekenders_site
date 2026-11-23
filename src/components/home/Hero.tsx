@@ -4,7 +4,7 @@ import { links } from "@/content/site";
 export default function Hero() {
   return (
     <div className="bg-mint">
-      <section className="relative isolate min-h-[640px] overflow-hidden rounded-b-[24px] bg-black lg:h-[810px]">
+      <section className="relative isolate min-h-[540px] overflow-hidden rounded-b-[24px] bg-black lg:h-[810px]">
         {/* Photo */}
         <img
           src="/images/hero-photo.webp"
@@ -42,7 +42,7 @@ export default function Hero() {
           className="pointer-events-none absolute top-[495px] left-[1189px] -z-10 hidden size-[379px] lg:block xl:left-auto xl:right-[-128px]"
         />
 
-        <div className="container-site flex flex-col gap-8 pt-24 pb-16 text-white lg:pt-[233px]">
+        <div className="container-site flex flex-col gap-6 pt-12 pb-10 text-white sm:gap-8 sm:pt-24 sm:pb-16 lg:pt-[233px]">
           <h1 className="max-w-[1100px] text-[44px] leading-[52px] font-bold tracking-[-0.022em] sm:text-[56px] sm:leading-[68px] lg:text-display-1">
             One weekend a month.
             <br />
