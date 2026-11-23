@@ -6,7 +6,7 @@ export default function Faqs() {
     <div className="bg-white">
       <section className="overflow-hidden rounded-[24px] border-b border-line" aria-labelledby="faq-heading">
         <div className="container-site section-y flex flex-col gap-10 lg:flex-row lg:justify-center lg:gap-8">
-          <div className="flex flex-col items-start gap-5 lg:w-[581px] lg:shrink-0">
+          <div className="flex min-w-0 flex-col items-start gap-5 lg:max-w-[581px] lg:flex-1">
             <p className="text-body-m font-bold tracking-[0.12em] text-brand">FAQS</p>
             <h2 id="faq-heading" className="heading-2">
               Questions people ask before becoming a Weekender
@@ -18,7 +18,7 @@ export default function Faqs() {
             </div>
           </div>
 
-          <div className="border-t border-line-subtle lg:w-[593px] lg:shrink-0">
+          <div className="min-w-0 border-t border-line-subtle lg:max-w-[593px] lg:flex-1">
             {faqs.map((f, i) => (
               <details key={f.q} name="faq" open={i === 0} className="group border-b border-line-subtle">
                 <summary className="flex cursor-pointer items-center gap-6 py-7">
