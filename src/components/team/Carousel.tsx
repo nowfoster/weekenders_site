@@ -2,8 +2,6 @@
 
 import { Children, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
-const pad = (n: number) => String(n).padStart(2, "0");
-
 function Arrow({ dir }: { dir: "prev" | "next" }) {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -23,7 +21,8 @@ function Arrow({ dir }: { dir: "prev" | "next" }) {
  * On desktop the intro + controls sit in a left column and the cards bleed off the right edge;
  * on smaller screens the cards sit under the intro with the controls below them.
  * The track scrolls natively (touch, trackpad, Shift+wheel, arrow keys when focused);
- * the buttons step one card at a time.
+ * the buttons step one card at a time and stop once the last card is fully in view.
+ * Pagination dots show one dot per reachable scroll position.
  */
 export default function Carousel({
   label,
@@ -39,8 +38,9 @@ export default function Carousel({
   const slides = Children.toArray(children);
   const count = slides.length;
   const trackRef = useRef<HTMLUListElement>(null);
+  /** Scroll offsets the carousel can stop at: each card's start, up to the point where the last card is in view. */
+  const [stops, setStops] = useState<number[]>([0]);
   const [index, setIndex] = useState(0);
-  const [atEnd, setAtEnd] = useState(count <= 1);
 
   const update = useCallback(() => {
     const track = trackRef.current;
@@ -48,14 +48,16 @@ export default function Carousel({
     const els = Array.from(track.children) as HTMLElement[];
     if (!els.length) return;
     const origin = els[0].offsetLeft;
+    const max = track.scrollWidth - track.clientWidth;
+    const next = els.map((el) => el.offsetLeft - origin).filter((x) => x < max - 2);
+    if (max > 2) next.push(max);
+    if (!next.length) next.push(0);
     let nearest = 0;
-    els.forEach((el, i) => {
-      if (Math.abs(el.offsetLeft - origin - track.scrollLeft) < Math.abs(els[nearest].offsetLeft - origin - track.scrollLeft)) {
-        nearest = i;
-      }
+    next.forEach((x, i) => {
+      if (Math.abs(x - track.scrollLeft) < Math.abs(next[nearest] - track.scrollLeft)) nearest = i;
     });
+    setStops((prev) => (prev.length === next.length && prev.every((x, i) => x === next[i]) ? prev : next));
     setIndex(nearest);
-    setAtEnd(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2);
   }, []);
 
   useEffect(() => {
@@ -72,15 +74,14 @@ export default function Carousel({
 
   const goTo = (i: number) => {
     const track = trackRef.current;
-    if (!track) return;
-    const els = Array.from(track.children) as HTMLElement[];
-    if (!els[i]) return;
+    if (!track || stops[i] === undefined) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    track.scrollTo({ left: els[i].offsetLeft - els[0].offsetLeft, behavior: reduce ? "auto" : "smooth" });
+    track.scrollTo({ left: stops[i], behavior: reduce ? "auto" : "smooth" });
   };
 
+  const pages = stops.length;
   const prevDisabled = index === 0;
-  const nextDisabled = index >= count - 1 || atEnd;
+  const nextDisabled = index >= pages - 1;
   const button =
     "flex size-14 items-center justify-center rounded-full border-2 bg-white transition enabled:border-brand enabled:text-brand enabled:hover:bg-mint disabled:border-line disabled:text-line";
 
@@ -99,14 +100,14 @@ export default function Carousel({
           ref={trackRef}
           tabIndex={0}
           aria-label={`${label}, scroll horizontally`}
-          className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-pl-4 pr-[calc(100%_-_var(--card)_-_16px)] pl-4 [--card:min(300px,calc(100vw_-_64px))] [scrollbar-width:none] sm:scroll-pl-8 sm:pr-[calc(100%_-_var(--card)_-_32px)] sm:pl-8 lg:scroll-pl-0 lg:pr-[calc(100%_-_var(--card))] lg:pl-0 [&::-webkit-scrollbar]:hidden"
+          className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 [--card:min(300px,calc(100vw_-_64px))] [scrollbar-width:none] sm:scroll-px-8 sm:px-8 lg:scroll-pl-0 lg:pl-0 [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((slide, i) => (
             <li
               key={i}
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${count}`}
-              className="flex w-(--card) shrink-0 snap-start"
+              className="flex w-(--card) shrink-0 snap-start last:snap-end"
             >
               {slide}
             </li>
@@ -114,17 +115,41 @@ export default function Carousel({
         </ul>
       </div>
 
-      <div className="flex items-center gap-3 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-8">
-        <button type="button" className={button} onClick={() => goTo(index - 1)} disabled={prevDisabled} aria-label="Previous">
+      {/* Phones/tablets: arrows at either side with the dots centred between. Desktop: arrows, then dots beneath. */}
+      <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 lg:col-start-1 lg:row-start-2 lg:grid-cols-[auto_auto] lg:justify-start lg:gap-y-6 lg:self-start lg:pt-8">
+        <button
+          type="button"
+          className={`col-start-1 row-start-1 ${button}`}
+          onClick={() => goTo(index - 1)}
+          disabled={prevDisabled}
+          aria-label="Previous"
+        >
           <Arrow dir="prev" />
         </button>
-        <button type="button" className={button} onClick={() => goTo(index + 1)} disabled={nextDisabled} aria-label="Next">
+        <button
+          type="button"
+          className={`col-start-3 row-start-1 lg:col-start-2 ${button}`}
+          onClick={() => goTo(index + 1)}
+          disabled={nextDisabled}
+          aria-label="Next"
+        >
           <Arrow dir="next" />
         </button>
-        <p className="pl-2 text-body-l font-medium text-ink-subtle" aria-live="polite" aria-atomic="true">
-          <span className="sr-only">Showing </span>
-          <span className="font-semibold text-brand">{pad(index + 1)}</span> <span aria-hidden>/</span>
-          <span className="sr-only">of</span> {pad(count)}
+        <div className="col-start-2 row-start-1 flex items-center justify-center gap-2 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:justify-start">
+          {pages > 1 &&
+            stops.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Go to position ${i + 1} of ${pages}`}
+                aria-current={i === index ? "true" : undefined}
+                className={`h-2.5 rounded-full transition-all ${i === index ? "w-6 bg-brand" : "w-2.5 bg-line hover:bg-teal-200"}`}
+              />
+            ))}
+        </div>
+        <p className="sr-only" aria-live="polite" aria-atomic="true">
+          Showing position {index + 1} of {pages}
         </p>
       </div>
     </div>
