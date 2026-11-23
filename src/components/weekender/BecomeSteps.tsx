@@ -21,7 +21,7 @@ export default function BecomeSteps() {
         {becomeSteps.map((step, i) => (
           <li key={step.title} className={i === 0 ? "bg-white" : bands[i - 1]}>
             <div className={`rounded-t-[24px] ${bands[i]}`}>
-              <details name="become-steps" open={i === 0} className="group container-site">
+              <details name="become-steps" className="group container-site">
                 <summary className="flex cursor-pointer items-center gap-4 py-7 sm:gap-8">
                   <span
                     className="w-12 shrink-0 text-[32px] leading-[40px] font-bold tracking-[-0.022em] sm:w-[120px] sm:text-h1"
