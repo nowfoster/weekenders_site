@@ -12,7 +12,7 @@ export default function IntroChatCard() {
         {blogSidebar.title}
       </h2>
       <p className="text-body-l">{blogSidebar.body}</p>
-      <ButtonLink href={links.bookIntroChat} className="w-full justify-between">
+      <ButtonLink href={links.bookIntroChat} className="w-full justify-between sm:w-fit sm:self-start">
         Book an intro chat
       </ButtonLink>
     </section>
