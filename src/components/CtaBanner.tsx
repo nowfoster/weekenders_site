@@ -28,7 +28,7 @@ export default function CtaBanner({ under = "bg-white" }: { under?: string }) {
           width={469}
           height={469}
           loading="lazy"
-          className="pointer-events-none absolute -right-[70px] -bottom-[110px] -z-10 size-[260px] rotate-180 object-cover sm:-right-[160px] sm:-bottom-[200px] sm:size-[469px] lg:right-auto lg:bottom-auto lg:left-[calc(50%+300px)] lg:top-[31px]"
+          className="pointer-events-none absolute -right-[70px] -bottom-[110px] -z-10 size-[260px] rotate-180 object-cover sm:-right-[160px] sm:-bottom-[200px] sm:size-[469px] lg:bottom-auto lg:top-[31px] lg:right-[min(calc(50%_-_769px),_-49px)]"
         />
         <div className="mx-auto flex max-w-[1216px] flex-col items-center gap-10 text-center">
           <div className="flex flex-col items-center gap-5">
