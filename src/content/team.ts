@@ -57,6 +57,10 @@ export const weekendersTeam = {
     { name: "Jan Blum", role: "Experience Lead & Founding Partner", image: { src: "/images/team/jan-blum.webp", alt: "Jan Blum" } },
     { name: "Katie Waldegrave", role: "Co-founder and Partnerships Lead", image: { src: "/images/team/katie-waldegrave.webp", alt: "Katie Waldegrave" } },
     { name: "Sila Krohn", role: "Weekenders Programme Manager", image: { src: "/images/team/sila-krohn.webp", alt: "Sila Krohn" } },
+    // TODO: add headshots for Sam, Molly and Amber to public/images/team/.
+    { name: "Sam Partington", role: "Lead Developer" },
+    { name: "Molly Chan", role: "Weekenders Programme Manager" },
+    { name: "Amber Dillon", role: "Weekenders Programme Manager" },
   ] satisfies TeamMember[] as TeamMember[],
 };
 
