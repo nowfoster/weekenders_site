@@ -44,7 +44,7 @@ export default function Intro() {
             aria-hidden
             width={418}
             height={418}
-            className="pointer-events-none absolute top-[40%] right-[-100px] size-[240px] sm:size-[418px] lg:top-[234px] lg:right-auto lg:left-[calc(50%+404px)]"
+            className="pointer-events-none absolute top-[40%] right-[-100px] size-[240px] sm:size-[418px] lg:top-[234px] lg:right-[min(calc(50%_-_822px),_-102px)]"
           />
         </div>
       </div>
