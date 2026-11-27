@@ -44,7 +44,7 @@ export default function StoriesHero() {
           aria-hidden
           width={418}
           height={418}
-          className="pointer-events-none absolute top-[55%] left-[calc(100%-110px)] size-[200px] object-cover sm:size-[300px] lg:top-[234px] lg:left-[calc(50%+404px)] lg:size-[418px]"
+          className="pointer-events-none absolute top-[55%] left-[calc(100%-110px)] size-[200px] object-cover sm:size-[300px] lg:top-[234px] lg:left-auto lg:right-[min(calc(50%_-_822px),_-102px)] lg:size-[418px]"
         />
       </div>
     </section>

@@ -5,21 +5,21 @@ const cards = [
   {
     // Step 1: dark card with faded, mirrored photo behind the text
     card: "bg-black text-white lg:min-h-[522px]",
-    number: "text-white opacity-25 right-8 top-[-150px]",
+    number: "text-white opacity-25 right-8 top-[-42px]",
     eyebrow: "text-white",
     body: "text-white",
     photo: null,
   },
   {
     card: "bg-lilac text-ink lg:min-h-[569px]",
-    number: "text-lilac-950 opacity-[0.12] right-8 top-[-157px]",
+    number: "text-lilac-950 opacity-[0.12] right-8 top-[-45px]",
     eyebrow: "text-lilac-950 tracking-[1px]",
     body: "text-ink",
     photo: { src: "/images/step2-photo.webp", w: 800, h: 1200, pos: "50% 43%", alt: "Two women chatting and laughing on a sofa" },
   },
   {
     card: "bg-brand text-white lg:min-h-[617px]",
-    number: "text-white opacity-10 right-8 top-[-149px]",
+    number: "text-white opacity-10 right-8 top-[-42px]",
     eyebrow: "text-teal-200 tracking-[1px]",
     body: "text-mint-50",
     photo: { src: "/images/step3-photo.webp", w: 1400, h: 933, pos: "34% 76%", alt: "A man sitting in a chair at home, playing with a young child" },
