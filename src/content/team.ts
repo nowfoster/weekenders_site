@@ -5,7 +5,7 @@
  * Photos: every person can take an optional `image`. Drop a WebP headshot into
  * public/images/team/ and set e.g. `image: { src: "/images/team/sila-krohn.webp", alt: "Sila Krohn" }`.
  * Without an image, a neutral placeholder block is shown.
- * TODO: the Journey Guides (Kira, Freya) are from the design and aren't on nowfoster.org: confirm them and add photos.
+ * TODO: the Journey Guides (Kiera, Freya, Cheryl) are from the design and aren't on nowfoster.org: confirm them and add photos.
  */
 
 export type PersonImage = {
@@ -29,7 +29,8 @@ export type JourneyGuide = {
   role: string;
   pronouns?: string;
   email?: string;
-  quote: string;
+  /** Optional while a guide's quote is still to come; the card then shows just their name and role. */
+  quote?: string;
   image?: PersonImage;
 };
 
@@ -70,7 +71,7 @@ export const journeyGuides = {
     "Our Journey Guides drive the Weekenders experience. They support people throughout the application and assessment process, helping make every step of the journey as positive and engaging as possible.",
   guides: [
     {
-      name: "Kira",
+      name: "Kiera Tsenti",
       pronouns: "she/her",
       role: "Weekenders Journey Guide",
       email: "kira@nowfoster.org",
@@ -78,12 +79,17 @@ export const journeyGuides = {
         "As a foster carer, I’ve seen the incredible difference a consistent adult can make in a young person’s life. Now I get to help people considering Weekending explore the impact they could have, and it’s amazing to see them realise how much difference just one weekend a month can make.",
     },
     {
-      name: "Freya",
+      name: "Freya Greenwood",
       pronouns: "she/her",
       role: "Weekenders Journey Guide",
       email: "freya@nowfoster.org",
       quote:
         "Growing up in care, I benefited so much from having amazing foster carers. Now I love speaking to people considering fostering, and helping them explore the impact they could have on young people. It really is a life-changing impact!",
+    },
+    // TODO: add Cheryl's quote, pronouns, email and photo.
+    {
+      name: "Cheryl Richards",
+      role: "Weekenders Journey Guide",
     },
   ] satisfies JourneyGuide[] as JourneyGuide[],
 };
